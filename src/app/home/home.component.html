@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<div class="container" style="max-width: 100%;">
+  <h1>Available Currencies :</h1>
+<!-- <ul>
+  <li>
+    <h5>Nom : <b>{{cont.nom}}</b></h5>
+  </li>
+  <li>
+    <h5>Prenom : <b>{{cont.prenom}}</b></h5>
+  </li>
+</ul> -->
+
+    <div class="container" style="max-width: 100%;">
+<h1>Home</h1>
+<p style="color: #28a745">You're logged in with Angular 6 & JWT!!</p>
+<div>
+    Users from secure api end point:
+    <ul>
+        <li style="color: red;" *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+    </ul>
+</div>
+<p><a [routerLink]="['/login']">Logout</a></p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Type</th>
+        <th scope="col">Symbole</th>
+        <th scope="col">Details</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of currencies; let i = index; let type of currencies[i].attributes">
+
+         <td>{{ contact.id }}</td>
+        <td>{{currencies[i].attributes.currency_type}}</td>
+        <td>{{ currencies[i].attributes.native_symbol }}</td>
+        <td><button (click)="onselect(contact)"  >Details</button></td>
+     
+      </tr>
+    </tbody>
+</table>
+
+
+
+
+</div>
+
+<div>
+  <app-page [app-page]="character" *ngFor="let character of characters"></app-page>
+</div>`
+</div>
+
+
+<router-outlet></router-outlet>
